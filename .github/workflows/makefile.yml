@@ -1,0 +1,23 @@
+name: Makefile CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: "Run: Make"
+      run: make
+
+    - name: "Push built binary to Github"
+      run: |
+        echo "Pushing..."
+        git add *
+        git commit -M "Github Actions: Make"
+        git push
+        echo "Done."
