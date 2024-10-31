@@ -59,7 +59,7 @@ main:
 
 
 
-msg_hello: db 'Hello from KelpOS!', ENDL, 0
+msg_hello: db 'Hello world from kernel!', ENDL, 0
 
 
 times 510-($-$$) db 0
