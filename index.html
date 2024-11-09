@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Home | KelpOS</title>
+</head>
+
+<body>
+  <div class="nav">
+    <button class="start">KelpOS</button>
+    <div class="apps" id="apps"></div>
+    <span class="tablet" id="timeData">November 6, 7:27 AM</span>
+  </div>
+
+  <div class="window" id="welcome" style="width: fit-content;">
+    <div class="windowhead" id="welcomeheader">
+      <p class="title">KelpOS</p>
+      <button class="windowclose" id="welcomeclose">X</a>
+    </div>
+    <div class="body">
+      <img src="assets/i/K.png"
+        style="width: 64px; height: 64px; border-radius: 32px; object-fit: cover;" />
+      <h1 style="margin: 4px;">KelpOS</h1>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+  <script>eruda.init();</script>
+  <script src="assets/js/index.js"></script>
+</body>
+
+</html>
