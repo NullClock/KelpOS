@@ -1,4 +1,5 @@
 const closeButtons = document.getElementsByClassName("windowclose");
+const startButton = document.getElementById("start");
 
 function updateTime() {
   var currentTime = new Date().toLocaleString();
@@ -81,7 +82,10 @@ document.querySelectorAll('button.windowclose').forEach(function(button) {
 //   }
 // }
 
-function openWindow(title, body) {
+function openWindow(title, body, opts = {}) {
+  opts.width = (typeof opts.width === "number" ? `${opts.width}px` : opts.width && !opts.width.endsWith("px") ? `${opts.width}px` : opts.width);
+  opts.height = (typeof opts.height === "number" ? `${opts.height}px` : opts.height && !opts.height.endsWith("px") ? `${opts.height}px` : opts.height);
+
   const windowMain = document.createElement("div");
   windowMain.id = Date.now();
   windowMain.className = "window";
@@ -102,6 +106,9 @@ function openWindow(title, body) {
   const container = document.createElement("div");
   container.className = "body";
   container.innerHTML = body;
+  container.style.width = opts?.width || "360px";
+  container.style.height = opts?.height || "auto";
+  container.style.margin = opts?.margin || "6px";
 
   windowhead.append(headbody);
   windowhead.append(headbtn);
@@ -119,4 +126,11 @@ function openWindow(title, body) {
       ele.remove();
     }
   });
+}
+
+async function openStartMenu() {
+  const requestForStartHTML = await fetch("assets/other/startMenu.html");
+  const startMenuHTML = await requestForStartHTML.text();
+
+  openWindow("KelpOS", startMenuHTML);
 }
